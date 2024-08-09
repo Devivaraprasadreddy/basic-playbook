@@ -1,0 +1,11 @@
+---
+- hosts: 192.168.29.131
+
+  vars_files:
+    - vars/test.yml
+
+  tasks:
+    - name: copy file
+      synchronize:
+        src: "{{ source_folder }}/a.txt"
+        dest: "{{ dest_folder }}"

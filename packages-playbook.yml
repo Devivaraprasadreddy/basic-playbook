@@ -1,0 +1,17 @@
+---
+ - name: Verifying host variable
+   hosts: managed-host
+   tasks:
+   - name: Testing first variable (http_port)
+     debug:
+       msg: "The HTTP PORT is {{ http_port }}"
+   - name: Testing second variable (pkg)
+     debug:
+       msg: "The package name is {{ pkg }}"
+
+
+   - name: install git packages
+     apt:
+      name: "{{pkg}}"
+      state: present
+
